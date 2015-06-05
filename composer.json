@@ -1,31 +1,23 @@
 {
-    "name": "conquer/codemirror",
+    "name": "skeeks/yii2-widget-codemirror",
     "description": "Yii2 codemirror widget",
     "keywords": ["yii2", "extension", "widget", "codemirror"],
-    "homepage": "https://github.com/borodulin/yii2-codemirror",
+    "homepage": "http://git.skeeks.com/skeeks/yii2-widget-codemirror",
     "type": "yii2-extension",
-    "license": "MIT",
+    "license": "BSD 3-Clause",
     "authors": [
         {
-            "name": "Andrey Borodulin",
-            "email": "borodulin@gmail.com",
-            "homepage": "https://github.com/borodulin/yii2-codemirror"
+            "name": "Semenov Alexander",
+            "email": "semenov@skeeks.com"
         }
     ],
-    "extra": {
-        "branch-alias": {
-          "dev-master": "1.2.7.x-dev"
-        }
-      },
     "require": {
-    	"php": ">=5.4.0",
     	"yiisoft/yii2": "*",
-    	"conquer/helpers": "~1.0.0",
     	"bower-asset/codemirror": "*"
     },
 	"autoload": {
 		"psr-4": {
-			"conquer\\codemirror\\": ""
+			"skeeks\\widget\\codemirror\\": ""
 		}
 	}
 }

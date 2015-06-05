@@ -1,17 +1,18 @@
 <?php
 /**
- * @link https://github.com/borodulin/yii2-codemirror
- * @copyright Copyright (c) 2015 Andrey Borodulin
- * @license https://github.com/borodulin/yii2-codemirror/blob/master/LICENSE.md
+ * @author Semenov Alexander <semenov@skeeks.com>
+ * @link http://skeeks.com/
+ * @copyright 2010 SkeekS (СкикС)
+ * @date 05.06.2015
  */
-namespace conquer\codemirror;
+namespace skeeks\widget\codemirror;
 
 use yii\web\View;
 use yii\helpers\ArrayHelper;
 
 /**
- * @author Andrey Borodulin
- * @link http://codemirror.net/
+ * Class CodemirrorAsset
+ * @package skeeks\widget\codemirror
  */
 class CodemirrorAsset extends \yii\web\AssetBundle
 {

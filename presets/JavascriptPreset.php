@@ -1,10 +1,11 @@
 <?php
 /**
- * @link https://github.com/borodulin/yii2-codemirror
- * @copyright Copyright (c) 2015 Andrey Borodulin
- * @license https://github.com/borodulin/yii2-codemirror/blob/master/LICENSE.md
+ * @author Semenov Alexander <semenov@skeeks.com>
+ * @link http://skeeks.com/
+ * @copyright 2010 SkeekS (СкикС)
+ * @date 05.06.2015
  */
-use conquer\codemirror\CodemirrorAsset;
+use skeeks\widget\codemirror\CodemirrorAsset;
 
 return [
 	'assets'=>[

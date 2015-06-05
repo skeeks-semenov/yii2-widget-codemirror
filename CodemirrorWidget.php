@@ -1,18 +1,20 @@
 <?php
 /**
- * @link https://github.com/borodulin/yii2-codemirror
- * @copyright Copyright (c) 2015 Andrey Borodulin
- * @license https://github.com/borodulin/yii2-codemirror/blob/master/LICENSE.md
+ * @author Semenov Alexander <semenov@skeeks.com>
+ * @link http://skeeks.com/
+ * @copyright 2010 SkeekS (СкикС)
+ * @date 05.06.2015
  */
-namespace conquer\codemirror;
+namespace skeeks\widget\codemirror;
 
 use yii\helpers\Html;
 use yii\web\JsExpression;
 use yii\helpers\ArrayHelper;
-use conquer\helpers\Json;
+use yii\helpers\Json;
 
 /**
- * @author Andrey Borodulin
+ * Class CodemirrorWidget
+ * @package skeeks\widget\codemirror
  */
 class CodemirrorWidget extends \yii\widgets\InputWidget
 {

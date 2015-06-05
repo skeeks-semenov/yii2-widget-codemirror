@@ -13,12 +13,12 @@ The preferred way to install this extension is through [composer](http://getcomp
 To install, either run
 
 ```
-$ php composer.phar require conquer/codemirror "*"
+$ php composer.phar require skeeks/yii2-widget-codemirror "*"
 ```
 or add
 
 ```
-"conquer/codemirror": "*"
+"skeeks/yii2-widget-codemirror": "*"
 ```
 
 to the ```require``` section of your `composer.json` file.
@@ -26,7 +26,7 @@ to the ```require``` section of your `composer.json` file.
 ## Usage
 
 ```php
-use conquer\codemirror\CodemirrorWidget;
+use skeeks\widget\codemirror\CodemirrorWidget;
 
 $form->field($model, 'code')->widget(
     CodemirrorWidget::className(),
@@ -40,7 +40,7 @@ $form->field($model, 'code')->widget(
 You can use ready-made presets, or create your own. To do this, specify the folder to your presets.
 
 ```php
-use conquer\codemirror\CodemirrorWidget;
+use skeeks\widget\codemirror\CodemirrorWidget;
 
 $form->field($model, 'code')->widget(
     CodemirrorWidget::className(),
@@ -54,8 +54,8 @@ $form->field($model, 'code')->widget(
 In general, you can customize the widget directly specifying its properties.
 
 ```php
-use conquer\codemirror\CodemirrorWidget;
-use conquer\codemirror\CodemirrorAsset;
+use skeeks\widget\codemirror\CodemirrorWidget;
+use skeeks\widget\codemirror\CodemirrorAsset;
 
 $form->field($model, 'code')->widget(
     CodemirrorWidget::className(),
