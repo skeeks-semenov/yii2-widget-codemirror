@@ -21,9 +21,9 @@ class CodemirrorWidget extends \yii\widgets\InputWidget
 	
 	public $presetsDir;
 	
-	public $assets=[];
+	public $assets = [];
 	
-	public $settings=[];
+	public $clientOptions = [];
 
 	/**
 	 * Preset name. php|javascript etc.
@@ -47,36 +47,58 @@ class CodemirrorWidget extends \yii\widgets\InputWidget
 	 */
 	public function run()
 	{
-		if ($this->hasModel()) {
+		if ($this->hasModel())
+        {
 			echo Html::activeTextarea($this->model, $this->attribute, $this->options);
-		} else {
+		} else
+        {
 			echo Html::textarea($this->name, $this->value, $this->options);
 		}
 		$this->registerAssets();
+		$this->_registerPlugin();
 	}
 	
-	
+
+
 	/**
 	 * Registers Assets
 	 */
 	public function registerAssets()
 	{
-		$view = $this->getView();		
-		$id = $this->options['id'];
-		$settings=$this->settings;
-		$assets=$this->assets;
-		if($this->preset){
-			$preset=$this->getPreset($this->preset);
-			if(isset($preset['settings']))
-				$settings = ArrayHelper::merge($preset['settings'], $settings);
+		$view       = $this->getView();
+		$settings   = $this->clientOptions;
+		$assets     = $this->assets;
+
+		if ($this->preset)
+        {
+			$preset = $this->getPreset($this->preset);
 			if(isset($preset['assets']))
-				$assets = ArrayHelper::merge($preset['assets'], $assets);
+            {
+                $assets = ArrayHelper::merge($preset['assets'], $assets);
+            }
+
+            if(isset($preset['settings']))
+            {
+                $this->clientOptions = ArrayHelper::merge($preset['settings'], $settings);
+            }
 		}
-		$settings = Json::encode($settings);
-		$js = "CodeMirror.fromTextArea(document.getElementById('$id'), $settings)";
-		$view->registerJs($js);
+
 		CodemirrorAsset::register($this->view, $assets);
 	}
+
+    /**
+	 * Registers CKEditor plugin
+	 */
+	protected function _registerPlugin()
+	{
+        $view       = $this->getView();
+		$id         = $this->options['id'];
+
+		$settings = Json::encode($this->clientOptions);
+		$js = "CodeMirror.fromTextArea(document.getElementById('$id'), $settings)";
+		$view->registerJs($js);
+	}
+
 	
 	public function getPreset($name)
 	{

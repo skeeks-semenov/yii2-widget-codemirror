@@ -15,7 +15,7 @@ return [
 		CodemirrorAsset::ADDON_DISPLAY_FULLSCREEN,
 		CodemirrorAsset::THEME_ECLIPSE,
 	],
-	'settings'=>[
+	'settings' => [
 		'lineNumbers' => true,
 		'matchBrackets' => true,
 		'mode' => "application/x-httpd-php-open",
