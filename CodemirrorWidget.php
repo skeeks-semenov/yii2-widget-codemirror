@@ -95,7 +95,7 @@ class CodemirrorWidget extends \yii\widgets\InputWidget
 		$id         = $this->options['id'];
 
 		$settings = Json::encode($this->clientOptions);
-		$js = "CodeMirror.fromTextArea(document.getElementById('$id'), $settings)";
+		$js = "CodeMirror.fromTextArea(document.getElementById('$id'), $settings);";
 		$view->registerJs($js);
 	}
 
