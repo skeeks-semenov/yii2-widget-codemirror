@@ -74,7 +74,7 @@ class CodemirrorWidget extends \yii\widgets\InputWidget
 			$preset = $this->getPreset($this->preset);
 			if(isset($preset['assets']))
             {
-                $assets = ArrayHelper::merge($preset['assets'], $assets);
+                $assets = ArrayHelper::merge($preset['assets'], (array) $assets);
             }
 
             if(isset($preset['settings']))
