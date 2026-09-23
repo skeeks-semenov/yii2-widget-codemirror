@@ -1,0 +1,135 @@
+/*
+ * CodeMirror inside SkeekS Backend UI (Admin, UPA and other cabinets).
+ *
+ * Every rule is scoped to html[data-sx-theme], so pages without the backend
+ * shell keep the stock CodeMirror look. Colors come from the backend semantic
+ * variables and follow the light/dark mode switch.
+ */
+
+html[data-sx-theme] .CodeMirror {
+    border: 1px solid var(--sx-form-control-border-color, var(--sx-color-border, #dedede));
+    border-radius: var(--sx-code-radius, 4px);
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: var(--sx-code-font-size, 13px);
+    line-height: 1.5;
+    overflow: hidden;
+}
+
+html[data-sx-theme] .CodeMirror.cm-s-default {
+    background: var(--sx-color-surface, #fff);
+    color: var(--sx-color-text, #262626);
+}
+
+html[data-sx-theme] .CodeMirror.CodeMirror-focused {
+    border-color: var(--sx-form-control-focus-border-color, var(--sx-color-border-strong, #c2c2c2));
+    box-shadow: var(--sx-form-control-focus-shadow, none);
+}
+
+/*
+ * Backend UI styles every bare `pre` as a code surface
+ * (`html[data-sx-theme] pre`). CodeMirror renders each line as a `pre`, so
+ * restore its own line box with a more specific selector.
+ */
+html[data-sx-theme] .CodeMirror pre {
+    display: block;
+    max-width: none;
+    padding: 0 4px;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    overflow: visible;
+    white-space: pre;
+    word-wrap: normal;
+    overflow-wrap: normal;
+}
+
+html[data-sx-theme] .CodeMirror.CodeMirror-wrap pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+html[data-sx-theme] .cm-s-default .CodeMirror-gutters {
+    border-right: 1px solid var(--sx-color-border, #dedede);
+    background: var(--sx-color-surface-muted, #f7f7f7);
+}
+
+html[data-sx-theme] .cm-s-default .CodeMirror-linenumber {
+    color: var(--sx-color-text-subtle, #999);
+}
+
+html[data-sx-theme] .cm-s-default .CodeMirror-cursor {
+    border-left-color: var(--sx-color-text, #262626);
+}
+
+html[data-sx-theme] .CodeMirror-selected {
+    background: var(--sx-color-surface-hover, #d9d9d9);
+}
+
+html[data-sx-theme] .CodeMirror-focused .CodeMirror-selected,
+html[data-sx-theme] .CodeMirror-line::selection,
+html[data-sx-theme] .CodeMirror-line > span::selection,
+html[data-sx-theme] .CodeMirror-line > span > span::selection {
+    background: rgba(66, 133, 244, .22);
+}
+
+/* Dark mode: stock cm-s-default token colors are unreadable on a dark surface. */
+html[data-sx-theme="dark"] .CodeMirror-focused .CodeMirror-selected,
+html[data-sx-theme="dark"] .CodeMirror-line::selection,
+html[data-sx-theme="dark"] .CodeMirror-line > span::selection,
+html[data-sx-theme="dark"] .CodeMirror-line > span > span::selection {
+    background: rgba(97, 175, 239, .28);
+}
+
+html[data-sx-theme="dark"] .cm-s-default .cm-header { color: #61afef; }
+html[data-sx-theme="dark"] .cm-s-default .cm-quote { color: #98c379; }
+html[data-sx-theme="dark"] .cm-s-default .cm-keyword { color: #c678dd; }
+html[data-sx-theme="dark"] .cm-s-default .cm-atom { color: #d19a66; }
+html[data-sx-theme="dark"] .cm-s-default .cm-number { color: #d19a66; }
+html[data-sx-theme="dark"] .cm-s-default .cm-def { color: #61afef; }
+html[data-sx-theme="dark"] .cm-s-default .cm-variable { color: var(--sx-color-text, #e7ebf2); }
+html[data-sx-theme="dark"] .cm-s-default .cm-variable-2 { color: #e5c07b; }
+html[data-sx-theme="dark"] .cm-s-default .cm-variable-3,
+html[data-sx-theme="dark"] .cm-s-default .cm-type { color: #e5c07b; }
+html[data-sx-theme="dark"] .cm-s-default .cm-property { color: #61afef; }
+html[data-sx-theme="dark"] .cm-s-default .cm-operator { color: #56b6c2; }
+html[data-sx-theme="dark"] .cm-s-default .cm-comment { color: var(--sx-color-text-subtle, #7f8998); font-style: italic; }
+html[data-sx-theme="dark"] .cm-s-default .cm-string { color: #98c379; }
+html[data-sx-theme="dark"] .cm-s-default .cm-string-2 { color: #e5c07b; }
+html[data-sx-theme="dark"] .cm-s-default .cm-meta { color: var(--sx-color-text-muted, #9ea8b7); }
+html[data-sx-theme="dark"] .cm-s-default .cm-qualifier { color: #d19a66; }
+html[data-sx-theme="dark"] .cm-s-default .cm-builtin { color: #56b6c2; }
+html[data-sx-theme="dark"] .cm-s-default .cm-bracket { color: var(--sx-color-text-muted, #9ea8b7); }
+html[data-sx-theme="dark"] .cm-s-default .cm-tag { color: #e06c75; }
+html[data-sx-theme="dark"] .cm-s-default .cm-attribute { color: #d19a66; }
+html[data-sx-theme="dark"] .cm-s-default .cm-hr { color: var(--sx-color-text-subtle, #7f8998); }
+html[data-sx-theme="dark"] .cm-s-default .cm-link { color: #61afef; }
+html[data-sx-theme="dark"] .cm-s-default .cm-error { color: #ff6b6b; }
+html[data-sx-theme="dark"] .cm-invalidchar { color: #ff6b6b; }
+
+html[data-sx-theme="dark"] .cm-s-default div.CodeMirror-cursor {
+    border-left-color: var(--sx-color-text, #e7ebf2);
+}
+
+html[data-sx-theme="dark"] div.CodeMirror span.CodeMirror-matchingbracket {
+    color: #98c379;
+    outline: 1px solid rgba(152, 195, 121, .5);
+}
+
+html[data-sx-theme="dark"] div.CodeMirror span.CodeMirror-nonmatchingbracket {
+    color: #ff6b6b;
+}
+
+html[data-sx-theme="dark"] .CodeMirror-matchingtag {
+    background: rgba(229, 192, 123, .18);
+}
+
+html[data-sx-theme="dark"] .CodeMirror-activeline-background {
+    background: var(--sx-color-surface-hover, #222a35);
+}

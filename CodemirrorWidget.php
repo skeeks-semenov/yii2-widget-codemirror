@@ -84,6 +84,7 @@ class CodemirrorWidget extends \yii\widgets\InputWidget
 		}
 
 		CodemirrorAsset::register($this->view, $assets);
+		CodemirrorBackendAsset::register($this->view);
 	}
 
     /**
